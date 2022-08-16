@@ -9,6 +9,9 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.TextView;
 
+/**
+ * Handler使用 倒计时java版本
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();

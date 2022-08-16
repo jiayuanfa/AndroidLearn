@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlin.concurrent.thread
 
 /**
- * 倒计时Kotlin版本
+ * Handler 倒计时Kotlin版本
  */
 class MainKotlinActivity: AppCompatActivity() {
 

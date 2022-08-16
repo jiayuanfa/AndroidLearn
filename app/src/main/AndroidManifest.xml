@@ -14,11 +14,10 @@
         android:theme="@style/Theme.AndroidLearn"
         tools:targetApi="31">
         <activity
-            android:name=".MainKotlinActivity"
+            android:name=".LuckyDrawKotlinActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
