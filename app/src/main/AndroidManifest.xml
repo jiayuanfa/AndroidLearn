@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AndroidLearn"
         tools:targetApi="31">
         <activity
-            android:name=".LuckyDrawKotlinActivity"
+            android:name=".ListenerActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
