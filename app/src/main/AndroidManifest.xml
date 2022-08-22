@@ -13,16 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLearn"
         tools:targetApi="31">
+
+        <service
+            android:name=".service.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity
-            android:name=".BroadcastReceiverJavaActivity"
+            android:name=".ServiceJavaActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".PhoneCallJavaActivity"/>
+        <activity android:name=".PhoneCallJavaActivity" />
     </application>
 
 </manifest>
