@@ -3,6 +3,7 @@ package com.example.androidlearn;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -28,7 +29,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        thread();
+        mTextView = findViewById(R.id.mCounterTv);
+
+        mTextView.setOnClickListener(view -> {
+            startActivity(new Intent(this, Camera2JavaActivity.class));
+        });
     }
 
     private void thread() {
