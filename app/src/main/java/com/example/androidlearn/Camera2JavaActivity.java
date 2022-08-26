@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.ImageFormat;
 import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
@@ -74,6 +75,10 @@ public class Camera2JavaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_camera2);
 
         mCamera2TextureView = findViewById(R.id.mTextureView);
+
+        findViewById(R.id.mGoResultPageBtn).setOnClickListener(view -> {
+            startActivity(new Intent(this, EmptyJavaActivity.class));
+        });
     }
 
     @Override
@@ -276,7 +281,12 @@ public class Camera2JavaActivity extends AppCompatActivity {
             // 开始预览，即一直发送预览的请求
             CaptureRequest captureRequest = mPreviewRequestBuilder.build();
             mCaptureSession.setRepeatingRequest(captureRequest, null, mBackgroundHandler);
-            handleZoom(false);
+            mCamera2TextureView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    handleZoom(true);
+                }
+            }, 2000);
         } catch (CameraAccessException | IllegalStateException e) {
             e.printStackTrace();
         }
