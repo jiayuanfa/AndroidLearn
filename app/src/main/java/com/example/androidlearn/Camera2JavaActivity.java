@@ -112,6 +112,12 @@ public class Camera2JavaActivity extends AppCompatActivity {
      * 10：拿到预览帧图片
      */
     private void cameraLaunchPreview() {
+        mOrientationEventListener = new OrientationEventListener(this) {
+            @Override
+            public void onOrientationChanged(int orientation) {
+                mDeviceOrientation = orientation;
+            }
+        };
         setSurfaceTextureListener();
     }
 
@@ -161,6 +167,7 @@ public class Camera2JavaActivity extends AppCompatActivity {
     @SuppressLint("MissingPermission")
     private void openCamera() {
 
+        mOrientationEventListener.enable();
         try {
 
             mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
@@ -180,8 +187,8 @@ public class Camera2JavaActivity extends AppCompatActivity {
             mCamera2TextureView.setAspectRatio(mPreviewSize.getHeight(), mPreviewSize.getWidth());
             mPictureSize = pictureSize;
             // 每次切换摄像头计算一次就行，结果缓存到成员变量中
-//            initDisplayRotation();
-//            initZoomParameter();
+            initDisplayRotation();
+            initZoomParameter();
 
             mCameraManager.openCamera(Integer.toString(mCameraId), new CameraDevice.StateCallback() {
                 @Override
@@ -199,7 +206,7 @@ public class Camera2JavaActivity extends AppCompatActivity {
                 public void onError(@NonNull CameraDevice cameraDevice, int i) {
                     releaseCamera();
                 }
-            }, mBackgroundHandler);
+            }, null);
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
@@ -280,7 +287,7 @@ public class Camera2JavaActivity extends AppCompatActivity {
         try {
             // 开始预览，即一直发送预览的请求
             CaptureRequest captureRequest = mPreviewRequestBuilder.build();
-            mCaptureSession.setRepeatingRequest(captureRequest, null, mBackgroundHandler);
+            mCaptureSession.setRepeatingRequest(captureRequest, null, null);
             mCamera2TextureView.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -290,6 +297,47 @@ public class Camera2JavaActivity extends AppCompatActivity {
         } catch (CameraAccessException | IllegalStateException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 初始化缩放参数
+     */
+    private void initZoomParameter() {
+        Rect rect = mCameraCharacteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE);
+        Log.d(TAG, "sensor_info_active_array_size: " + rect);
+        // max_digital_zoom 表示 active_rect 除以 crop_rect 的最大值
+        float max_digital_zoom = mCameraCharacteristics.get(CameraCharacteristics.SCALER_AVAILABLE_MAX_DIGITAL_ZOOM);
+        Log.d(TAG, "max_digital_zoom: " + max_digital_zoom);
+        // crop_rect的最小宽高
+        float minWidth = rect.width() / max_digital_zoom;
+        float minHeight = rect.height() / max_digital_zoom;
+        // 因为缩放时两边都要变化，所以要除以2
+        mStepWidth = (rect.width() - minWidth) / MAX_ZOOM / 2;
+        mStepHeight = (rect.height() - minHeight) / MAX_ZOOM / 2;
+    }
+
+    /**
+     * 摄像头方向回正
+     */
+    private void initDisplayRotation() {
+        int displayRotation = getWindowManager().getDefaultDisplay().getRotation();
+        switch (displayRotation) {
+            case Surface.ROTATION_0:
+                displayRotation = 90;
+                break;
+            case Surface.ROTATION_90:
+                displayRotation = 0;
+                break;
+            case Surface.ROTATION_180:
+                displayRotation = 270;
+                break;
+            case Surface.ROTATION_270:
+                displayRotation = 180;
+                break;
+        }
+        int sensorOrientation = mCameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
+        mDisplayRotation = (displayRotation + sensorOrientation + 270) % 360;
+        Log.d(TAG, "mDisplayRotation: " + mDisplayRotation);
     }
 
     /**
@@ -318,7 +366,7 @@ public class Camera2JavaActivity extends AppCompatActivity {
         try {
             // 开始预览，即一直发送预览的请求
             CaptureRequest captureRequest = mPreviewRequestBuilder.build();
-            mCaptureSession.setRepeatingRequest(captureRequest, null, mBackgroundHandler);
+            mCaptureSession.setRepeatingRequest(captureRequest, null, null);
         } catch (CameraAccessException | IllegalStateException e) {
             e.printStackTrace();
         }
