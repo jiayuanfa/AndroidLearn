@@ -6,8 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.example.androidlearn.widget.Camera2TextureView
+    <com.example.androidlearn.camera2.Camera2TextureView
         android:id="@+id/mTextureView"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.androidlearn.camera2.AutoTextureView
+        android:id="@+id/mTextureView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:text="去结果页"
-        app:layout_constraintBottom_toBottomOf="@+id/mTextureView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
