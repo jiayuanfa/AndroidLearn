@@ -8,6 +8,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!--网络权限-->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,7 +20,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLearn"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+<!--        android:networkSecurityConfig="@xml/network_security_config"-->
 
         <service
             android:name=".service.MyService"
@@ -36,6 +42,7 @@
         <activity android:name=".camera2.Camera2JavaActivity" />
         <activity android:name=".EmptyJavaActivity" />
         <activity android:name=".dataSave.SharePreferencesJavaActivity"/>
+        <activity android:name=".network.NetworkJavaActivity"/>
     </application>
 
 </manifest>

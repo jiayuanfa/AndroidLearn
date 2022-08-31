@@ -12,12 +12,3 @@ class EmptyKotlinActivity: AppCompatActivity() {
         setContentView(R.layout.activity_empty)
     }
 }
-
-class EmptyKotlinActivity: AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.activity_empty)
-    }
-}
