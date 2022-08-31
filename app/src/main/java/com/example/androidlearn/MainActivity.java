@@ -10,6 +10,8 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.androidlearn.dataSave.SharePreferencesJavaActivity;
+
 /**
  * Handler使用 倒计时java版本
  */
@@ -32,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         mTextView = findViewById(R.id.mCounterTv);
 
         mTextView.setOnClickListener(view -> {
-            startActivity(new Intent(this, Camera2JavaActivity.class));
+//            startActivity(new Intent(this, Camera2JavaActivity.class));   // 相机
+            startActivity(new Intent(this, SharePreferencesJavaActivity.class));    // SP
         });
     }
 

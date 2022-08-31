@@ -35,7 +35,7 @@
         <activity android:name=".PhoneCallJavaActivity" />
         <activity android:name=".Camera2JavaActivity" />
         <activity android:name=".EmptyJavaActivity" />
-
+        <activity android:name=".dataSave.SharePreferencesJavaActivity"/>
     </application>
 
 </manifest>

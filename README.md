@@ -10,3 +10,4 @@
 - BroadcastReceiver的使用 Java版本
 - Service的使用 Java版本
 - Camera2相机的使用 Java版本
+- SharePreferences的使用 Java版本
