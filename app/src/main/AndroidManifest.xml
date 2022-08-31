@@ -43,6 +43,7 @@
         <activity android:name=".EmptyJavaActivity" />
         <activity android:name=".dataSave.SharePreferencesJavaActivity"/>
         <activity android:name=".network.NetworkJavaActivity"/>
+        <activity android:name=".hardware.SensorJavaActivity"/>
     </application>
 
 </manifest>

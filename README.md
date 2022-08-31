@@ -12,3 +12,4 @@
 - Camera2相机的使用 Java版本
 - SharePreferences的使用 Java版本
 - HttpURLConnection的使用、JSONObject的使用 Java版本
+- Sensor 距离传感器的使用 Java版本
