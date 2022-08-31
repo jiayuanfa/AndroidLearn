@@ -1,4 +1,4 @@
-package com.example.androidlearn
+package com.example.androidlearn.threadAndHandler
 
 import android.os.Bundle
 import android.os.Handler
@@ -6,12 +6,13 @@ import android.os.Looper
 import android.os.Message
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.androidlearn.R
 import kotlin.concurrent.thread
 
 /**
  * Handler 倒计时Kotlin版本
  */
-class MainKotlinActivity: AppCompatActivity() {
+class CounterKotlinActivity: AppCompatActivity() {
 
     private val mHandler: Handler = object : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {

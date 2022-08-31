@@ -1,7 +1,8 @@
-package com.example.androidlearn
+package com.example.androidlearn.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.androidlearn.R
 
 class ConstrainLayoutKotlinActivity: AppCompatActivity() {
 

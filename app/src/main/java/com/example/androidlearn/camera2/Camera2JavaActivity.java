@@ -1,4 +1,4 @@
-package com.example.androidlearn;
+package com.example.androidlearn.camera2;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.androidlearn.EmptyJavaActivity;
+import com.example.androidlearn.R;
 import com.example.androidlearn.camera2.AutoTextureView;
 import com.example.androidlearn.camera2.Camera2Proxy;
 import com.example.androidlearn.utils.PermissionsUtil;

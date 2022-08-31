@@ -1,7 +1,4 @@
-package com.example.androidlearn;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.androidlearn.threadAndHandler;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,14 +7,18 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.androidlearn.R;
 import com.example.androidlearn.dataSave.SharePreferencesJavaActivity;
 
 /**
  * Handler使用 倒计时java版本
  */
-public class MainActivity extends AppCompatActivity {
+public class CounterJavaActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = CounterJavaActivity.class.getSimpleName();
     /**
      * 新线程中，发送Message消息给Handler处理，表示自己是哪一条线的
      * @param savedInstanceState

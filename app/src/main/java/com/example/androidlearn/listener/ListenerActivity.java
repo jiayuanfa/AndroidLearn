@@ -1,4 +1,4 @@
-package com.example.androidlearn;
+package com.example.androidlearn.listener;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,6 +9,8 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.androidlearn.R;
 
 /**
  * 监听器的使用  Java版本

@@ -1,4 +1,4 @@
-package com.example.androidlearn
+package com.example.androidlearn.listener
 
 import android.os.Bundle
 import android.text.Editable
@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.androidlearn.R
 
 /**
  * 监听器的使用 Kotlin版本
