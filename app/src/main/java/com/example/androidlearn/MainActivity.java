@@ -11,6 +11,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.example.androidlearn.dataSave.SharePreferencesJavaActivity;
+import com.example.androidlearn.hardware.SensorDirectionJavaActivity;
 import com.example.androidlearn.hardware.SensorJavaActivity;
 import com.example.androidlearn.network.NetworkJavaActivity;
 
@@ -39,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(new Intent(this, Camera2JavaActivity.class));   // 相机
 //            startActivity(new Intent(this, SharePreferencesJavaActivity.class));    // SP
 //            startActivity(new Intent(this, NetworkJavaActivity.class)); // 基本网络请求以及JSON解析
-            startActivity(new Intent(this, SensorJavaActivity.class));  // 传感器的使用
+//            startActivity(new Intent(this, SensorJavaActivity.class));  // 传感器的使用
+            startActivity(new Intent(this, SensorDirectionJavaActivity.class));
         });
     }
 

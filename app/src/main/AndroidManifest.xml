@@ -44,6 +44,7 @@
         <activity android:name=".dataSave.SharePreferencesJavaActivity"/>
         <activity android:name=".network.NetworkJavaActivity"/>
         <activity android:name=".hardware.SensorJavaActivity"/>
+        <activity android:name=".hardware.SensorDirectionJavaActivity"/>
     </application>
 
 </manifest>
