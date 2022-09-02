@@ -10,6 +10,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.androidlearn.animation.RotateAnimationJavaActivity;
 import com.example.androidlearn.dataSave.SharePreferencesJavaActivity;
 import com.example.androidlearn.hardware.SensorDirectionJavaActivity;
 import com.example.androidlearn.hardware.SensorJavaActivity;
@@ -41,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(new Intent(this, SharePreferencesJavaActivity.class));    // SP
 //            startActivity(new Intent(this, NetworkJavaActivity.class)); // 基本网络请求以及JSON解析
 //            startActivity(new Intent(this, SensorJavaActivity.class));  // 传感器的使用
-            startActivity(new Intent(this, SensorDirectionJavaActivity.class));
+            startActivity(new Intent(this, SensorDirectionJavaActivity.class));   // 方向传感器的使用
+//            startActivity(new Intent(this, RotateAnimationJavaActivity.class)); // RotateAnimation动画
         });
     }
 

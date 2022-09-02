@@ -45,6 +45,7 @@
         <activity android:name=".network.NetworkJavaActivity"/>
         <activity android:name=".hardware.SensorJavaActivity"/>
         <activity android:name=".hardware.SensorDirectionJavaActivity"/>
+        <activity android:name=".animation.RotateAnimationJavaActivity"/>
     </application>
 
 </manifest>

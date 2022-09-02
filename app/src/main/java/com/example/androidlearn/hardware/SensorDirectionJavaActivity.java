@@ -97,14 +97,16 @@ public class SensorDirectionJavaActivity extends AppCompatActivity {
                 // 拿到方向角度
                 float degree = (float) Math.toDegrees(values[0]);
 
+                System.out.println("原始旋转角度为：" + degree);
+
                 // 老的TYPE_ORIENTATION角度范围是[0, 360]，而谷歌推荐的这套新的API拿到的角度是[-180，180], 所以要做处理
                 if (degree < 0) {
-                    degree = degree + (float) 360.0;
+                    degree = (360 - (degree + (float) 360.0));
+                } else {
+                    degree = 360 - degree;
                 }
 
-                System.out.println("旋转角度为：" + degree);
                 // 根据角度进行旋转动画
-
                 RotateAnimation rotateAnimation = new RotateAnimation(
                         predegree,
                         degree,
@@ -113,16 +115,15 @@ public class SensorDirectionJavaActivity extends AppCompatActivity {
                         Animation.RELATIVE_TO_SELF,
                         0.5f
                 );
-                rotateAnimation.setRepeatMode(RotateAnimation.INFINITE);
-                rotateAnimation.setDuration(200);
+                rotateAnimation.setDuration(1000);
+                rotateAnimation.setFillAfter(true);
 
-//                if (System.currentTimeMillis() - time < 1000) {
-//                    return;
-//                }
-
-                time = System.currentTimeMillis();
-                compassView.startAnimation(rotateAnimation);
-                predegree = -degree;
+                if (System.currentTimeMillis() - time > 1000) {
+                    time = System.currentTimeMillis();
+                    compassView.startAnimation(rotateAnimation);
+//                    System.out.println("旋转角度为：" + degree);
+                    predegree = degree;
+                }
             }
 
             @Override
