@@ -46,6 +46,9 @@
         <activity android:name=".hardware.SensorJavaActivity"/>
         <activity android:name=".hardware.SensorDirectionJavaActivity"/>
         <activity android:name=".animation.RotateAnimationJavaActivity"/>
+        <activity android:name=".touchEvent.TouchEventJavaActivity"/>
+        <activity android:name=".touchEvent.ViewGroupActivity"/>
+        <activity android:name=".touchEvent.ViewActivity"/>
     </application>
 
 </manifest>

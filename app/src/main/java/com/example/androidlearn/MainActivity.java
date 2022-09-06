@@ -15,6 +15,9 @@ import com.example.androidlearn.dataSave.SharePreferencesJavaActivity;
 import com.example.androidlearn.hardware.SensorDirectionJavaActivity;
 import com.example.androidlearn.hardware.SensorJavaActivity;
 import com.example.androidlearn.network.NetworkJavaActivity;
+import com.example.androidlearn.touchEvent.TouchEventJavaActivity;
+import com.example.androidlearn.touchEvent.ViewActivity;
+import com.example.androidlearn.touchEvent.ViewGroupActivity;
 
 /**
  * Handler使用 倒计时java版本
@@ -42,8 +45,11 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(new Intent(this, SharePreferencesJavaActivity.class));    // SP
 //            startActivity(new Intent(this, NetworkJavaActivity.class)); // 基本网络请求以及JSON解析
 //            startActivity(new Intent(this, SensorJavaActivity.class));  // 传感器的使用
-            startActivity(new Intent(this, SensorDirectionJavaActivity.class));   // 方向传感器的使用
+//            startActivity(new Intent(this, SensorDirectionJavaActivity.class));   // 方向传感器的使用
 //            startActivity(new Intent(this, RotateAnimationJavaActivity.class)); // RotateAnimation动画
+//            startActivity(new Intent(this, TouchEventJavaActivity.class)); Activity的事件分发逻辑
+//            startActivity(new Intent(this, ViewGroupActivity.class));   // ViewGroup的事件分发逻辑
+            startActivity(new Intent(this, ViewActivity.class));    // View的事件分发逻辑
         });
     }
 

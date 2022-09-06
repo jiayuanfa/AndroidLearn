@@ -14,3 +14,4 @@
 - HttpURLConnection的使用、JSONObject的使用 Java版本
 - Sensor 距离传感器的使用 Java版本
 - Sensor 方向传感器的使用、指南针 Java版本
+- Activity的事件分发流程、ViewGroup的事件分发流程、View的事件分发流程
