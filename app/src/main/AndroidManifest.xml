@@ -52,6 +52,7 @@
         <activity android:name=".animation.ViewScrollJavaActivity"/>
         <activity android:name=".animation.AnimationJavaActivity"/>
         <activity android:name=".animation.ChangeLayoutParamsJavaActivity"/>
+        <activity android:name=".animation.ScrollerJavaActivity"/>
     </application>
 
 </manifest>
