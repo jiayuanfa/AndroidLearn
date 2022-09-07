@@ -10,6 +10,8 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.androidlearn.animation.AnimationJavaActivity;
+import com.example.androidlearn.animation.ChangeLayoutParamsJavaActivity;
 import com.example.androidlearn.animation.RotateAnimationJavaActivity;
 import com.example.androidlearn.animation.ViewScrollJavaActivity;
 import com.example.androidlearn.dataSave.SharePreferencesJavaActivity;
@@ -51,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(new Intent(this, TouchEventJavaActivity.class)); Activity的事件分发逻辑
 //            startActivity(new Intent(this, ViewGroupActivity.class));   // ViewGroup的事件分发逻辑
 //            startActivity(new Intent(this, ViewActivity.class));    // View的事件分发逻辑
-              startActivity(new Intent(this, ViewScrollJavaActivity.class));    // View的滑动
+//              startActivity(new Intent(this, ViewScrollJavaActivity.class));    // View的滑动
+//            startActivity(new Intent(this, AnimationJavaActivity.class));   // View的动画
+            startActivity(new Intent(this, ChangeLayoutParamsJavaActivity.class));  // 修改View的LayoutParams
         });
     }
 

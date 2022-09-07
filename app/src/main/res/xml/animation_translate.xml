@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="2000"
+    android:fromXDelta="0"
+    android:fromYDelta="0"
+    android:toXDelta="400"
+    android:toYDelta="400" />
+
+<!--此属性决定其动画结束是否停留在原地-->
+    <!--    android:fillAfter="true"-->

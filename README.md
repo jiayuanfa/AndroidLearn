@@ -16,3 +16,6 @@
 - Sensor 方向传感器的使用、指南针 Java版本
 - Activity的事件分发流程、ViewGroup的事件分发流程、View的事件分发流程
 - View的滑动之ScrollBy和ScrollTo
+## View的动画
+- 补间动画、属性动画
+- 代码动态修改View的LayoutParams

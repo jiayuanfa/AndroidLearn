@@ -50,6 +50,8 @@
         <activity android:name=".touchEvent.ViewGroupActivity"/>
         <activity android:name=".touchEvent.ViewActivity"/>
         <activity android:name=".animation.ViewScrollJavaActivity"/>
+        <activity android:name=".animation.AnimationJavaActivity"/>
+        <activity android:name=".animation.ChangeLayoutParamsJavaActivity"/>
     </application>
 
 </manifest>

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_animation.xml" value="0.16197916666666667" />
         <entry key="app/src/main/res/layout/activity_camera2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_constrain_layout.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_empty.xml" value="0.1546875" />
@@ -24,6 +25,7 @@
         <entry key="app/src/main/res/layout/activity_view_scroll.xml" value="0.16197916666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1705" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1705" />
+        <entry key="app/src/main/res/xml/animation.xml" value="0.1609375" />
         <entry key="app/src/main/res/xml/network_security_config.xml" value="0.12604166666666666" />
       </map>
     </option>
