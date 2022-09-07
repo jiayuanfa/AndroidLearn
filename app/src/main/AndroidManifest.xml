@@ -49,6 +49,7 @@
         <activity android:name=".touchEvent.TouchEventJavaActivity"/>
         <activity android:name=".touchEvent.ViewGroupActivity"/>
         <activity android:name=".touchEvent.ViewActivity"/>
+        <activity android:name=".animation.ViewScrollJavaActivity"/>
     </application>
 
 </manifest>

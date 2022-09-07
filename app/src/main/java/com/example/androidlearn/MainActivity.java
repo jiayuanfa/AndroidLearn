@@ -11,6 +11,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.example.androidlearn.animation.RotateAnimationJavaActivity;
+import com.example.androidlearn.animation.ViewScrollJavaActivity;
 import com.example.androidlearn.dataSave.SharePreferencesJavaActivity;
 import com.example.androidlearn.hardware.SensorDirectionJavaActivity;
 import com.example.androidlearn.hardware.SensorJavaActivity;
@@ -49,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(new Intent(this, RotateAnimationJavaActivity.class)); // RotateAnimation动画
 //            startActivity(new Intent(this, TouchEventJavaActivity.class)); Activity的事件分发逻辑
 //            startActivity(new Intent(this, ViewGroupActivity.class));   // ViewGroup的事件分发逻辑
-            startActivity(new Intent(this, ViewActivity.class));    // View的事件分发逻辑
+//            startActivity(new Intent(this, ViewActivity.class));    // View的事件分发逻辑
+              startActivity(new Intent(this, ViewScrollJavaActivity.class));    // View的滑动
         });
     }
 
