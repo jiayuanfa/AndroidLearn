@@ -20,5 +20,5 @@
 - 补间动画、属性动画
 - 代码动态修改View的LayoutParams
 - Scroller动画的使用
-- 滑动冲突解决
-- 惯性滑动效果处理
+- 滑动冲突解决 
+- 惯性滑动效果处理 VerticalScrollerView
