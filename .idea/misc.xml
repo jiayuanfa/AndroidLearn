@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/selector_tab.xml" value="0.1185" />
         <entry key="app/src/main/res/layout/activity_animation.xml" value="0.16197916666666667" />
         <entry key="app/src/main/res/layout/activity_camera2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_constrain_layout.xml" value="0.335" />
@@ -20,6 +21,7 @@
         <entry key="app/src/main/res/layout/activity_sensor_direction.xml" value="0.17572463768115942" />
         <entry key="app/src/main/res/layout/activity_service.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_share_preferences.xml" value="0.17572463768115942" />
+        <entry key="app/src/main/res/layout/activity_slide_conflict.xml" value="0.17572463768115942" />
         <entry key="app/src/main/res/layout/activity_touch_event.xml" value="0.18917274939172748" />
         <entry key="app/src/main/res/layout/activity_view.xml" value="0.10416666666666667" />
         <entry key="app/src/main/res/layout/activity_view_group.xml" value="0.16197916666666667" />

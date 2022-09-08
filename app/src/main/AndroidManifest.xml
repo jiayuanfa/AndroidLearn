@@ -53,6 +53,7 @@
         <activity android:name=".animation.AnimationJavaActivity"/>
         <activity android:name=".animation.ChangeLayoutParamsJavaActivity"/>
         <activity android:name=".animation.ScrollerJavaActivity"/>
+        <activity android:name=".animation.ScrollConflictJavaActivity"/>
     </application>
 
 </manifest>
