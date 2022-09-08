@@ -19,6 +19,7 @@
 ## View的动画
 - 补间动画、属性动画
 - 代码动态修改View的LayoutParams
-- Scroller动画的使用
-- 滑动冲突解决 
-- 惯性滑动效果处理 VerticalScrollerView
+- Scroller动画的使用 HorizontalScrollerView
+- 滑动冲突解决：通过外部拦截法解决 HorizontalScrollerView （ScrollConflictJavaActivity）
+- 滑动冲突解决：通过内部拦截法解决 VerticalScrollerView （ScrollConflictJavaActivity）
+- 惯性滑动效果处理 VerticalScrollerView （ScrollConflictJavaActivity）

@@ -35,47 +35,6 @@ public class HorizontalScrollerView extends ViewGroup {
     }
 
     /**
-     * 外部拦截法
-     * 计算手指在屏幕上滑动的X轴距，Y轴距
-     * 如果x > y ，则拦截事件，左右滑动，反之，不拦截
-     * @param ev
-     * @return
-     */
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-//        boolean intercept;
-//        float x = ev.getX();
-//        float y = ev.getY();
-//        switch (ev.getAction()) {
-//            case MotionEvent.ACTION_DOWN:
-//                intercept = false;
-//                if (!scroller.isFinished()) {
-//                    scroller.abortAnimation();
-//                    intercept = true;
-//                }
-//                break;
-//            case MotionEvent.ACTION_MOVE:
-//                float dx = x - lastInterceptX;
-//                float dy = y - lastInterceptY;
-//                // 水平滑动距离大于竖直滑动
-//                intercept = Math.abs(dx) > Math.abs(dy);
-//                break;
-//            case MotionEvent.ACTION_UP:
-//            default:
-//                intercept = false;
-//                break;
-//        }
-//        lastX = x;
-//        lastY = y;
-//
-//        lastInterceptX = x;
-//        lastInterceptY = y;
-//        return intercept;
-
-        return false;
-    }
-
-    /**
      * 初始化滚动器
      * 初始化滑动速度计算器
      * @param context
@@ -144,6 +103,70 @@ public class HorizontalScrollerView extends ViewGroup {
 
         boolean res = super.dispatchTouchEvent(ev);
         return res;
+    }
+
+    /**
+     * 外部拦截法
+     * 计算手指在屏幕上滑动的X轴距，Y轴距
+     * 如果x > y ，则拦截事件，左右滑动，反之，不拦截
+     * @param ev
+     * @return
+     */
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+
+        /**
+         * 以下代码为内部拦截法
+         * 也就是父控件在down的时候不拦截
+         * 其余时候拦截
+         * 子控件在move的时候，判断是否阻止父控件拦截
+         */
+//        switch (ev.getAction()) {
+//            case MotionEvent.ACTION_DOWN:
+//                if (!scroller.isFinished()) {
+//                    scroller.abortAnimation();
+//                    return true;
+//                }
+//                return false;
+//            case MotionEvent.ACTION_MOVE:
+//            case MotionEvent.ACTION_UP:
+//            default:
+//                return true;
+//        }
+
+        /**
+         * 以下代码为外部拦截法
+         * 为什么外部拦截法，不需要子控件去做什么就能拦截呢？
+         * 就是因为外部拦截法，比较简单粗暴。不需要经过协商，而内部拦截法则需要递归。
+         */
+        boolean intercept;
+        float x = ev.getX();
+        float y = ev.getY();
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                intercept = false;
+                if (!scroller.isFinished()) {
+                    scroller.abortAnimation();
+                    intercept = true;
+                }
+                break;
+            case MotionEvent.ACTION_MOVE:
+                float dx = x - lastInterceptX;
+                float dy = y - lastInterceptY;
+                // 水平滑动距离大于竖直滑动
+                intercept = Math.abs(dx)  > Math.abs(dy) + 10;
+                break;
+            case MotionEvent.ACTION_UP:
+            default:
+                intercept = false;
+                break;
+        }
+        lastX = x;
+        lastY = y;
+
+        lastInterceptX = x;
+        lastInterceptY = y;
+        return intercept;
     }
 
     /**

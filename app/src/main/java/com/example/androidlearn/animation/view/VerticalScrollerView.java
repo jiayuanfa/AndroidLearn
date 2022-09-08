@@ -92,17 +92,41 @@ public class VerticalScrollerView extends ViewGroup {
         }
     }
 
+//    /**
+//     * 内部拦截法
+//     * 1：上来先禁止父控件拦截
+//     * @param ev
+//     * @return
+//     */
 //    @Override
 //    public boolean dispatchTouchEvent(MotionEvent ev) {
-//        x = ev.getX();
-//        y = ev.getY();
-//        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-//            getParent().requestDisallowInterceptTouchEvent(true);
+//        float x = ev.getX();
+//        float y = ev.getY();
+//        switch (ev.getAction()) {
+//            case MotionEvent.ACTION_DOWN:
+//                // 按下的时候不允许父控件拦截
+//                // 至于为什么父控件已经在down的时候不拦截了，这里还要再告知一下不拦截
+//                // 是因为递归
+//                // 事件是从上到下的，父控件不拦截，子控件得先消费，后告知，达成一致
+//                getParent().requestDisallowInterceptTouchEvent(true);
+//                break;
+//
+//            case MotionEvent.ACTION_MOVE:
+//                float dx = x - lastX;
+//                float dy = y - lastY;
+//
+//                // 左右滑动距离大于水平滑动距离超过50 允许父控件拦截
+//                if (Math.abs(dx) > Math.abs(dy) + 10) {
+//                    getParent().requestDisallowInterceptTouchEvent(false);
+//                }
+//
+//                break;
+//            case MotionEvent.ACTION_UP:
+//
+//            default:
+//                break;
 //        }
-//        boolean res = super.dispatchTouchEvent(ev);
-//        lastX = x;
-//        lastY = y;
-//        return res;
+//        return super.dispatchTouchEvent(ev);
 //    }
 
     @Override
@@ -123,10 +147,6 @@ public class VerticalScrollerView extends ViewGroup {
                 int dy = (int) (y - lastY);
                 //跟随手指滑动
                 scrollBy(0, -dy);
-                //在水平滑动距离 大于 竖直滑动时 允许 父View拦截
-//                if (Math.abs(dx) > Math.abs(dy) + 50) {
-//                    getParent().requestDisallowInterceptTouchEvent(false);
-//                }
                 break;
             case MotionEvent.ACTION_UP:
                 int scrollY = getScrollY();
