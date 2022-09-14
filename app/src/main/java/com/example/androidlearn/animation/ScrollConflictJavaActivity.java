@@ -11,6 +11,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.androidlearn.R;
 import com.example.androidlearn.animation.view.HorizontalScrollerView;
+import com.example.androidlearn.animation.view.ItemHorizontalScrollerView;
 import com.example.androidlearn.animation.view.VerticalScrollerView;
 
 /**
@@ -31,7 +32,7 @@ import com.example.androidlearn.animation.view.VerticalScrollerView;
  * 2：滑动冲突的处理规则
  *  2.1：场景一：外部滑动方向和内部滑动方向不一致：左右滑动时让外部的View上拦截点击事件，上下滑动的时候让内部的View拦截处理。根据滑动过程中两个点之间的坐标得出滑动方向来判断到底由谁来拦截
  *  2.2：场景二：外部滑动方向和内部滑动方向一致：根据业务的具体要求来决定是外部还是内部的View来拦截处理事件
- *  2.3：场景一和场景二的混合，参考一二处理规则即可
+ *  2.3：场景一和场景二的混合（内外滑动不一致 并且也有外部和内部滑动一致的场景），参考一二处理规则即可
  *
  * 3：滑动冲突的解决方式
  *  3.1：外部拦截法：当父容器只要在 onInterceptTouchEvent 中拦截了事件(返回true)，后续的事件都不会传到子View
@@ -71,9 +72,19 @@ public class ScrollConflictJavaActivity extends AppCompatActivity implements Vie
         verticalScrollerView2 = findViewById(R.id.mVSV2);
         verticalScrollerView3 = findViewById(R.id.mVSV3);
 
+        /**
+         * 往三个垂直的子RV上添加垂直滑动的子View
+         */
         setUpRsV(verticalScrollerView1);
         setUpRsV(verticalScrollerView2);
         setUpRsV(verticalScrollerView3);
+
+
+        /**
+         * 往三个垂直的子RV上添加一些水平滑动的子View
+         * 来模拟既有外部滑动和内部滑动方向不一致的场景，也有外部滑动和内部滑动方向一致的场景
+         */
+
 
         tab1.setOnClickListener(this);
         tab2.setOnClickListener(this);
@@ -101,10 +112,34 @@ public class ScrollConflictJavaActivity extends AppCompatActivity implements Vie
     }
 
     /**
+     * 给VerticalScrollerView上面添加一行水平滑动的View
+     * @param verticalScrollerView
+     */
+    private void addItemHorizontalScrollerView(VerticalScrollerView verticalScrollerView) {
+        ViewGroup.MarginLayoutParams layoutParams = new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        ItemHorizontalScrollerView itemHorizontalScrollerView = new ItemHorizontalScrollerView(this);
+        itemHorizontalScrollerView.setLayoutParams(layoutParams);
+        int itemCount = 10;
+        ViewGroup.MarginLayoutParams itemLP = new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        for (int i = 0; i < itemCount; i++) {
+            AppCompatButton button = new AppCompatButton(this);
+            button.setLayoutParams(itemLP);
+            button.setText(String.valueOf(i));
+            button.setClickable(false);
+            button.setLongClickable(false);
+            itemHorizontalScrollerView.addView(button);
+        }
+        verticalScrollerView.addView(itemHorizontalScrollerView);
+    }
+
+    /**
      * 测试数据的起始值和个数
      */
     private int start = 0, count = 30;
     private void setUpRsV(VerticalScrollerView verticalScrollerView) {
+
+        addItemHorizontalScrollerView(verticalScrollerView);
+
         ViewGroup.MarginLayoutParams layoutParams = new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.topMargin = 32;
         for (int i = start; i < count - 1; i++) {

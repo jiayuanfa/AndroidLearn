@@ -23,3 +23,4 @@
 - 滑动冲突解决：通过外部拦截法解决 HorizontalScrollerView （ScrollConflictJavaActivity）
 - 滑动冲突解决：通过内部拦截法解决 VerticalScrollerView （ScrollConflictJavaActivity）
 - 惯性滑动效果处理 VerticalScrollerView （ScrollConflictJavaActivity）
+- 滑动冲突解决（内部外部即存在方向一致的，也存在方向不一致的处理）
