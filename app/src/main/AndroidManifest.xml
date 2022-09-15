@@ -54,6 +54,10 @@
         <activity android:name=".animation.ChangeLayoutParamsJavaActivity"/>
         <activity android:name=".animation.ScrollerJavaActivity"/>
         <activity android:name=".animation.ScrollConflictJavaActivity"/>
+        <activity android:name=".ui.LinkRecycleViewJavaActivity"/>
+        <activity android:name=".ui.LayoutInflaterJavaActivity"/>
+        <activity android:name=".ui.CustomViewJavaActivity"/>
+        <activity android:name=".ui.CanvasCustomViewJavaActivity"/>
     </application>
 
 </manifest>

@@ -23,6 +23,10 @@ import com.example.androidlearn.network.NetworkJavaActivity;
 import com.example.androidlearn.touchEvent.TouchEventJavaActivity;
 import com.example.androidlearn.touchEvent.ViewActivity;
 import com.example.androidlearn.touchEvent.ViewGroupActivity;
+import com.example.androidlearn.ui.CanvasCustomViewJavaActivity;
+import com.example.androidlearn.ui.CustomViewJavaActivity;
+import com.example.androidlearn.ui.LayoutInflaterJavaActivity;
+import com.example.androidlearn.ui.LinkRecycleViewJavaActivity;
 
 /**
  * Handler使用 倒计时java版本
@@ -59,7 +63,11 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(new Intent(this, AnimationJavaActivity.class));   // View的动画
 //            startActivity(new Intent(this, ChangeLayoutParamsJavaActivity.class));  // 修改View的LayoutParams
 //            startActivity(new Intent(this, ScrollerJavaActivity.class));    // Scroller
-            startActivity(new Intent(this, ScrollConflictJavaActivity.class));  // 滑动冲突问题
+//            startActivity(new Intent(this, ScrollConflictJavaActivity.class));  // 滑动冲突问题
+//            startActivity(new Intent(this, LinkRecycleViewJavaActivity.class));   // 二级RV
+//            startActivity(new Intent(this, LayoutInflaterJavaActivity.class));    // LayoutInflater的使用
+//            startActivity(new Intent(this, CustomViewJavaActivity.class));  // 自定义View
+            startActivity(new Intent(this, CanvasCustomViewJavaActivity.class));    // Canvas 自定义onDraw
         });
     }
 
