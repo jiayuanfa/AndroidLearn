@@ -1,4 +1,5 @@
 # AndroidLearn 双语版本
+## 目标：用最简洁的代码写清楚关于Android学习、面试、实战的一切
 
 # 四大组件
 - Handler 倒计时 Java版本编写
