@@ -58,6 +58,7 @@
         <activity android:name=".ui.LayoutInflaterJavaActivity"/>
         <activity android:name=".ui.CustomViewJavaActivity"/>
         <activity android:name=".ui.CanvasCustomViewJavaActivity"/>
+        <activity android:name=".ui.ViewStatusJavaActivity"/>
     </application>
 
 </manifest>

@@ -42,4 +42,12 @@ public class CanvasView extends View {
         String text = "Hello world!";
         canvas.drawText(text, 0, (float) (getHeight() / 2), mPaint);
     }
+
+    /**
+     * 每当View的状态发生了改变，就会回调此方法
+     */
+    @Override
+    protected void drawableStateChanged() {
+        super.drawableStateChanged();
+    }
 }
