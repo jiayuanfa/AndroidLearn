@@ -44,4 +44,5 @@
 ## 自定义View
 - 自定义View （onMeasure、onLayout、onDraw）(SimpleLayout、CanvasView)
 - 视图状态与重绘（ViewStatusJavaActivity）
-- 自绘控件（CounterView）
+- 自绘控件 CounterView (CustomViewJavaActivity)
+- 自定义View之组合控件 NavigationBarView (CustomViewJavaActivity)

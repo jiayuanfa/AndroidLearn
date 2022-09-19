@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/layout/activity_canvas_custom_view.xml" value="0.17889492753623187" />
         <entry key="app/src/main/res/layout/activity_constrain_layout.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_custom_view.xml" value="0.1342451874366768" />
+        <entry key="app/src/main/res/layout/activity_custom_view_combined_control.xml" value="0.14719202898550723" />
         <entry key="app/src/main/res/layout/activity_custom_view_self_invalidate.xml" value="0.14719202898550723" />
         <entry key="app/src/main/res/layout/activity_empty.xml" value="0.1546875" />
         <entry key="app/src/main/res/layout/activity_http_net.xml" value="0.17572463768115942" />
@@ -35,6 +36,7 @@
         <entry key="app/src/main/res/layout/activity_view_scroll.xml" value="0.16197916666666667" />
         <entry key="app/src/main/res/layout/activity_view_status .xml" value="0.14114583333333333" />
         <entry key="app/src/main/res/layout/button_layout.xml" value="0.18115942028985507" />
+        <entry key="app/src/main/res/layout/view_navigation_bar.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1705" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1705" />
         <entry key="app/src/main/res/xml/animation.xml" value="0.1609375" />
