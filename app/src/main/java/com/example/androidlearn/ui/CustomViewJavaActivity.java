@@ -22,9 +22,10 @@ public class CustomViewJavaActivity extends AppCompatActivity {
 
 //        setContentView(R.layout.activity_custom_view);
 //        setContentView(R.layout.activity_custom_view_self_invalidate);  // 自绘控件
-        setContentView(R.layout.activity_custom_view_combined_control); // 组合控件
+//        setContentView(R.layout.activity_custom_view_combined_control); // 组合控件
+//        initView();
 
-        initView();
+        setContentView(R.layout.activity_custom_view_inherited_contrl); // 继承控件
     }
 
     private void initView() {

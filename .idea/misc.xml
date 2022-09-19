@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/layout/activity_constrain_layout.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_custom_view.xml" value="0.1342451874366768" />
         <entry key="app/src/main/res/layout/activity_custom_view_combined_control.xml" value="0.14719202898550723" />
+        <entry key="app/src/main/res/layout/activity_custom_view_inherited_contrl.xml" value="0.14719202898550723" />
         <entry key="app/src/main/res/layout/activity_custom_view_self_invalidate.xml" value="0.14719202898550723" />
         <entry key="app/src/main/res/layout/activity_empty.xml" value="0.1546875" />
         <entry key="app/src/main/res/layout/activity_http_net.xml" value="0.17572463768115942" />
