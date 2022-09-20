@@ -59,6 +59,7 @@
         <activity android:name=".ui.CustomViewJavaActivity"/>
         <activity android:name=".ui.CanvasCustomViewJavaActivity"/>
         <activity android:name=".ui.ViewStatusJavaActivity"/>
+        <activity android:name=".dataSave.LruCacheJavaActivity"/>
     </application>
 
 </manifest>

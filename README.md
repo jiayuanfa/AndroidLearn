@@ -47,3 +47,6 @@
 - 自绘控件 CounterView (CustomViewJavaActivity)
 - 自定义View之组合控件 NavigationBarView (CustomViewJavaActivity)
 - 自定义View之继承控件 PowerImageView (CustomViewJavaActivity)
+
+## Android缓存设计
+- LruCache设计 （LruCacheJavaActivity）

@@ -16,6 +16,7 @@ import com.example.androidlearn.animation.RotateAnimationJavaActivity;
 import com.example.androidlearn.animation.ScrollConflictJavaActivity;
 import com.example.androidlearn.animation.ScrollerJavaActivity;
 import com.example.androidlearn.animation.ViewScrollJavaActivity;
+import com.example.androidlearn.dataSave.LruCacheJavaActivity;
 import com.example.androidlearn.dataSave.SharePreferencesJavaActivity;
 import com.example.androidlearn.hardware.SensorDirectionJavaActivity;
 import com.example.androidlearn.hardware.SensorJavaActivity;
@@ -67,9 +68,10 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(new Intent(this, ScrollConflictJavaActivity.class));  // 滑动冲突问题
 //            startActivity(new Intent(this, LinkRecycleViewJavaActivity.class));   // 二级RV
 //            startActivity(new Intent(this, LayoutInflaterJavaActivity.class));    // LayoutInflater的使用
-            startActivity(new Intent(this, CustomViewJavaActivity.class));  // 自定义View
+//            startActivity(new Intent(this, CustomViewJavaActivity.class));  // 自定义View
 //            startActivity(new Intent(this, CanvasCustomViewJavaActivity.class));    // Canvas 自定义onDraw
 //            startActivity(new Intent(this, ViewStatusJavaActivity.class));  // View Status
+            startActivity(new Intent(this, LruCacheJavaActivity.class));    // LruCache算法实现测试
         });
     }
 
