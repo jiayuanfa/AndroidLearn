@@ -7,8 +7,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.androidlearn.R;
-import com.example.androidlearn.architecture.mvc.model.Callback1;
+import com.example.androidlearn.architecture.mvc.callback.Callback1;
 import com.example.androidlearn.architecture.mvc.model.SimpleModel;
+import com.example.androidlearn.architecture.mvc.model.UserInfo;
 
 /**
  * 架构模式
@@ -33,9 +34,9 @@ public class MvcActivity extends AppCompatActivity {
         mNameTv = findViewById(R.id.mNameTv);
         mAgeTv = findViewById(R.id.mAgeTv);
         findViewById(R.id.mGetUserInfoButton).setOnClickListener(view -> {
-            simpleModel.getUserInfo("1", new Callback1<SimpleModel.UserInfo>() {
+            simpleModel.getUserInfo("1", new Callback1<UserInfo>() {
                 @Override
-                public void onCallBack(SimpleModel.UserInfo userInfo) {
+                public void onCallBack(UserInfo userInfo) {
                     mNameTv.setText(userInfo.getName());
                     mAgeTv.setText(String.valueOf(userInfo.getAge()));
                 }
