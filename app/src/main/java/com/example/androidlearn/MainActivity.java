@@ -17,6 +17,7 @@ import com.example.androidlearn.animation.ScrollConflictJavaActivity;
 import com.example.androidlearn.animation.ScrollerJavaActivity;
 import com.example.androidlearn.animation.ViewScrollJavaActivity;
 import com.example.androidlearn.architecture.mvc.MvcActivity;
+import com.example.androidlearn.architecture.mvp.MvpActivity;
 import com.example.androidlearn.dataSave.LruCacheJavaActivity;
 import com.example.androidlearn.dataSave.SharePreferencesJavaActivity;
 import com.example.androidlearn.hardware.SensorDirectionJavaActivity;
@@ -73,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(new Intent(this, CanvasCustomViewJavaActivity.class));    // Canvas 自定义onDraw
 //            startActivity(new Intent(this, ViewStatusJavaActivity.class));  // View Status
 //            startActivity(new Intent(this, LruCacheJavaActivity.class));    // LruCache算法实现测试
-            startActivity(new Intent(this, MvcActivity.class)); // MVC 架构模式
+//            startActivity(new Intent(this, MvcActivity.class)); // MVC 架构模式
+            startActivity(new Intent(this, MvpActivity.class)); // MVP架构模式
         });
     }
 

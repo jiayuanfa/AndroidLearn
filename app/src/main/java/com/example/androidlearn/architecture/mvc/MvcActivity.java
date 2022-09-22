@@ -14,9 +14,6 @@ import com.example.androidlearn.architecture.mvc.model.UserInfo;
 /**
  * 架构模式
  * MVC
- * MVP
- * MVVM
- * MVI
  */
 public class MvcActivity extends AppCompatActivity {
 
