@@ -1,11 +1,11 @@
 package com.example.androidlearn.architecture.mvc.model;
 
 import com.example.androidlearn.architecture.mvc.callback.Callback1;
-import com.example.androidlearn.architecture.mvc.http.HttpUtils;
+import com.example.androidlearn.architecture.mvc.http.HttpUtilsForMvc;
 
 public class SimpleModel implements BaseModel{
 
-    private HttpUtils httpUtils = new HttpUtils();
+    private HttpUtilsForMvc httpUtils = new HttpUtilsForMvc();
 
     /**
      * 提供该外接获取Model的方法

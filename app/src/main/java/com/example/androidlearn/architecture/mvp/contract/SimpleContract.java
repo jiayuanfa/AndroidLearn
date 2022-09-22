@@ -1,8 +1,8 @@
 package com.example.androidlearn.architecture.mvp.contract;
 
 import com.example.androidlearn.architecture.mvc.callback.Callback1;
-import com.example.androidlearn.architecture.mvc.http.HttpUtils;
 import com.example.androidlearn.architecture.mvc.model.UserInfo;
+import com.example.androidlearn.architecture.mvp.http.HttpUtilsForMvp;
 import com.example.androidlearn.architecture.mvp.presenter.BasePresenter;
 import com.example.androidlearn.architecture.mvp.view.BaseView;
 
@@ -16,7 +16,7 @@ public class SimpleContract {
 
     public static class Presenter implements BasePresenter {
 
-        private HttpUtils httpUtils = new HttpUtils();
+        private HttpUtilsForMvp httpUtils = new HttpUtilsForMvp();
 
         /**
          * 提供该外接获取Model的方法

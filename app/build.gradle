@@ -33,6 +33,11 @@ android {
             }
         }
     }
+
+    dataBinding {
+        //noinspection DataBindingWithoutKapt
+        enabled true
+    }
 }
 
 dependencies {

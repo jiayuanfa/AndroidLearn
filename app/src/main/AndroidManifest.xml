@@ -62,6 +62,7 @@
         <activity android:name=".dataSave.LruCacheJavaActivity"/>
         <activity android:name=".architecture.mvc.MvcActivity"/>
         <activity android:name=".architecture.mvp.MvpActivity"/>
+        <activity android:name=".architecture.mvvm.MvvmActivity"/>
     </application>
 
 </manifest>

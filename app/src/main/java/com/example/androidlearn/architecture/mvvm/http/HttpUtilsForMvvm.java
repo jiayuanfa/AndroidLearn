@@ -1,8 +1,8 @@
-package com.example.androidlearn.architecture.mvc.http;
+package com.example.androidlearn.architecture.mvvm.http;
 
-import com.example.androidlearn.architecture.mvc.model.UserInfo;
+import com.example.androidlearn.architecture.mvvm.model.UserInfo;
 
-public class HttpUtils {
+public class HttpUtilsForMvvm {
     public UserInfo getUserInfo(String uid) {
         UserInfo userInfo = new UserInfo();
         userInfo.setAge(30);
