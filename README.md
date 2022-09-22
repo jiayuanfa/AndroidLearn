@@ -50,3 +50,6 @@
 
 ## Android缓存设计
 - LruCache设计 （LruCacheJavaActivity）
+
+## 架构
+- MVC 架构代码编写
