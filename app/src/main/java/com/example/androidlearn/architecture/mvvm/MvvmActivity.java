@@ -30,7 +30,14 @@ import com.example.androidlearn.databinding.ActivityMvvmBinding;
  *    在google推出DataBinding之前，因为xml layout功能较弱，想实现MVVM非常困难。
  *    而DataBinding的出现可以让我们很方便的实现MVVM
  *
- *
+ * 总结：看起来MVVM很好的解决了MVC和MVP的不足，
+ * 但是由于数据和视图的双向绑定，导致出现问题时不太好定位来源，
+ * 有可能数据问题导致，也有可能业务逻辑中对视图属性的修改导致。
+ * 如果项目中打算用MVVM的话可以考虑使用
+ * 官方的架构组件
+ * ViewModel、
+ * LiveData、
+ * DataBinding去实现MVVM
  */
 public class MvvmActivity extends AppCompatActivity {
 

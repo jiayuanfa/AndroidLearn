@@ -1,3 +1,4 @@
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -15,4 +16,12 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "AndroidLearn"
+
+
+/*************** settings.gradle *****************/
+println "settings.gradle start"
+
 include ':app'
+
+println "settings.gradle end"
+

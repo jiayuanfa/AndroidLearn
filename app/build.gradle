@@ -1,6 +1,8 @@
-plugins {
-    id 'com.android.application'
-}
+
+/*************** app_build.gradle log *****************/
+println "app_build_gradle_config start"
+
+apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
@@ -57,3 +59,11 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.9.1'
 
 }
+
+project.afterEvaluate {
+    println "app evaluate start"
+    println "app evaluate end"
+}
+
+println "app_build_gradle_config end"
+

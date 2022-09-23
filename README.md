@@ -55,3 +55,6 @@
 - MVC 架构代码编写
 - MVP 架构代码编写
 - MVVM 架构代码编写
+
+## Gradle
+- Gradle 编译过程、执行顺序
