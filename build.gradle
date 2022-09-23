@@ -1,5 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+/*************** app_build.gradle log *****************/
+
 buildscript {
+
+    println "project_build_gradle_config start"
+
     ext.kotlin_version = '1.7.20-Beta'
     repositories {
         mavenCentral()
@@ -12,6 +18,8 @@ plugins {
     id 'com.android.application' version '7.2.0' apply false
     id 'com.android.library' version '7.2.0' apply false
 }
+
+println "project_build_gradle_config end"
 
 task clean(type: Delete) {
     delete rootProject.buildDir
