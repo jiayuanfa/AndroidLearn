@@ -24,6 +24,7 @@ import com.example.androidlearn.dataSave.SharePreferencesJavaActivity;
 import com.example.androidlearn.hardware.SensorDirectionJavaActivity;
 import com.example.androidlearn.hardware.SensorJavaActivity;
 import com.example.androidlearn.network.NetworkJavaActivity;
+import com.example.androidlearn.network.OkHttpActivity;
 import com.example.androidlearn.rxjava.RxJavaActivity;
 import com.example.androidlearn.touchEvent.TouchEventJavaActivity;
 import com.example.androidlearn.touchEvent.ViewActivity;
@@ -79,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(new Intent(this, MvcActivity.class)); // MVC 架构模式
 //            startActivity(new Intent(this, MvpActivity.class)); // MVP架构模式
 //            startActivity(new Intent(this, MvvmActivity.class));    // MVVM架构模式
-            startActivity(new Intent(this, RxJavaActivity.class));  // RxJava
+//            startActivity(new Intent(this, RxJavaActivity.class));  // RxJava
+            startActivity(new Intent(this, OkHttpActivity.class));  // Okhttp
         });
     }
 

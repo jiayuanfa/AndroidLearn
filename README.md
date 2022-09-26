@@ -20,6 +20,8 @@
 
 # 网络
 - HttpURLConnection的使用、JSONObject的使用 Java版本
+## OkHttp
+- GET
 
 # 硬件
 - Sensor 距离传感器的使用 Java版本

@@ -20,6 +20,7 @@ import io.reactivex.rxjava3.core.ObservableOnSubscribe;
 import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Action;
+import io.reactivex.rxjava3.functions.Function;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import io.reactivex.rxjava3.subjects.Subject;
 
@@ -48,8 +49,20 @@ public class RxJavaActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * RxJava3
+     * 定时器
+     * 轮询
+     * map
+     */
     private void rxJavaSimpleForInterval() {
         Observable.interval(1, TimeUnit.SECONDS)
+                .map(new Function<Long, Long>() {
+                    @Override
+                    public Long apply(Long aLong) throws Throwable {
+                        return aLong * 5;
+                    }
+                })
                 .subscribe(new Observer<Long>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
