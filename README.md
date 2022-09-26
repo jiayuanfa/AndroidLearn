@@ -23,6 +23,10 @@
 ## OkHttp
 - GET
 
+## Retrofit
+- GET
+- POST
+
 # 硬件
 - Sensor 距离传感器的使用 Java版本
 - Sensor 方向传感器的使用、指南针 Java版本

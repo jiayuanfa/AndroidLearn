@@ -65,6 +65,7 @@
         <activity android:name=".architecture.mvvm.MvvmActivity"/>
         <activity android:name=".rxjava.RxJavaActivity"/>
         <activity android:name=".network.OkHttpActivity"/>
+        <activity android:name=".network.RetrofitActivity"/>
     </application>
 
 </manifest>

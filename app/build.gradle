@@ -67,6 +67,11 @@ dependencies {
 
     // OkHttp
     implementation 'com.squareup.okhttp:okhttp:2.4.0'
+
+    // 步骤1：添加Retrofit库的依赖、Gson解析库
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 }
 
 project.afterEvaluate {
