@@ -20,12 +20,16 @@
 
 # 网络
 - HttpURLConnection的使用、JSONObject的使用 Java版本
+
 ## OkHttp
 - GET
 
 ## Retrofit
 - GET
 - POST
+
+## Glide
+- Glide图片加载的基本使用 (GlideActivity)
 
 # 硬件
 - Sensor 距离传感器的使用 Java版本
