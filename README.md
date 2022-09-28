@@ -31,6 +31,7 @@
 ## Glide
 - Glide图片加载的基本使用 (GlideActivity)
 - Glide with() load() into() 源码分析
+- downloadOnly 图片下载 获取File、Bitmap等源文件
 
 # 硬件
 - Sensor 距离传感器的使用 Java版本

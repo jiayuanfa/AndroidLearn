@@ -1,6 +1,9 @@
 package com.example.androidlearn.network.glide;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -9,10 +12,18 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.FutureTarget;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.example.androidlearn.R;
 
 import java.io.File;
+import java.io.FileInputStream;
 
 /**
  * Glide 用法解析
@@ -55,12 +66,74 @@ public class GlideActivity extends AppCompatActivity {
 
         mImageView = findViewById(R.id.mIv);
 
-        glideLoadUrl();
+//        glideLoadUrl();   // url图片加载
+//        glidePreloadUrl();  // 图片预加载
+//        mImageView.setOnClickListener(view -> {
+//            showImage();
+//        });
+
+        glideImageDownload();   // 图片下载
+
+
 //        glideLoadLocalImage();
 //        glideLoadResImage();
 //        glideLoadImageBytes();
 //        glideLoadImageUri();
     }
+
+    /**
+     * 图片下载
+     */
+    @SuppressLint("CheckResult")
+    private void glideImageDownload() {
+        String url = "http://cn.bing.com/az/hprichbg/rb/TOAD_ZH-CN7336795473_1920x1080.jpg";
+        RequestManager requestManager = Glide.with(getApplicationContext());
+        RequestBuilder<File> requestBuilder = requestManager.downloadOnly();
+        requestBuilder.load(url);
+        requestBuilder.listener(new RequestListener<File>() {
+            @Override
+            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<File> target, boolean isFirstResource) {
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(File resource, Object model, Target<File> target, DataSource dataSource, boolean isFirstResource) {
+                try {
+                    FileInputStream fis = new FileInputStream(resource);
+                    Bitmap bmp = BitmapFactory.decodeStream(fis);
+                    mImageView.setImageBitmap(bmp);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return false;
+            }
+        });
+        requestBuilder.preload();
+    }
+
+    /**
+     * 图片预加载
+     */
+    private void glidePreloadUrl() {
+        String imageUrl = "http://cn.bing.com/az/hprichbg/rb/Dongdaemun_ZH-CN10736487148_1920x1080.jpg";
+        String gifUrl = "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01639c586c91bba801219c77f6efc8.gif&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666841952&t=c70c81db892979e877998c37a117e2d1";
+        Glide.with(this)
+                .load(imageUrl)
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                .preload();
+    }
+
+    /**
+     * 图片显示
+     */
+    private void showImage() {
+        String imageUrl = "http://cn.bing.com/az/hprichbg/rb/Dongdaemun_ZH-CN10736487148_1920x1080.jpg";
+        Glide.with(this)
+                .load(imageUrl)
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                .into(mImageView);
+    }
+
 
     /**
      * 加载Uri图片
@@ -123,19 +196,18 @@ public class GlideActivity extends AppCompatActivity {
      *
      * 指定图片格式：asBitmap asGif等 比如指定了asBitmap 那么加载出来的图片都是静态的了，包括Gif
      *
-     * 强制指定图片大小：override
+     * 强制指定图片大小：.override(100, 100)
+     *
+     * skipMemoryCache: 是否禁用Glide的内存缓存功能
      */
     private void glideLoadUrl() {
 
         String imageUrl = "http://cn.bing.com/az/hprichbg/rb/Dongdaemun_ZH-CN10736487148_1920x1080.jpg";
         String gifUrl = "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01639c586c91bba801219c77f6efc8.gif&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666841952&t=c70c81db892979e877998c37a117e2d1";
         Glide.with(this)
-                .asBitmap()
                 .load(imageUrl)
                 .error(R.drawable.compose_bg)
                 .placeholder(R.mipmap.ic_launcher)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .override(100, 100)
                 .into(mImageView);
     }
 }

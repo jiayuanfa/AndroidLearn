@@ -67,6 +67,7 @@
         <activity android:name=".network.OkHttpActivity"/>
         <activity android:name=".network.RetrofitActivity"/>
         <activity android:name=".network.glide.GlideActivity"/>
+        <activity android:name=".network.glide.GlideCustomTargetActivity"/>
     </application>
 
 </manifest>
