@@ -4,8 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
@@ -15,32 +17,38 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.MultiTransformation;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.FutureTarget;
 import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.example.androidlearn.R;
 
 import java.io.File;
 import java.io.FileInputStream;
 
+import jp.wasabeef.glide.transformations.BlurTransformation;
+import jp.wasabeef.glide.transformations.GrayscaleTransformation;
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 /**
  * Glide 用法解析
- *
+ * <p>
  * ## 源码分析
- *
+ * <p>
  * ### with() Glide调用
  * ①获取一个RequestManager对象,Glide会根据我们传入with()方法的参数来确定图片加载的生命周期.\
  * ②一种是Application类型的参数，另一种是传入非Application类型的参数,第一种直接跟应用程序的生命周期同步,第二种是会向当前的Activity当中添加一个隐藏的Fragment,通过监听Fragment的生命周期来跟Activity生命周期同步,来控制图片加载与否\
  * ③在非主线程中使用Glide,都会强制使用Application来处理\
- *
+ * <p>
  * ### load()
  * 以图片Url字符串为例 RequestManager调用\
  * ①loadGeneric() ModelLoader对象是用于加载图片的，而我们给load()方法传入不同类型的参数，这里也会得到不同的ModelLoader对象.由于我们刚才传入的参数是String.class，因此最终得到的是StreamStringLoader对象，它是实现了ModelLoader接口的.\
  * ②返回一个DrawableTypeRequest对象\
  * ③DrawableTypeRequest中的asBitmap()和asGif(),它们分别又创建了一个BitmapTypeRequest和GifTypeRequest，如果没有进行强制指定的话，那默认就是使用DrawableTypeRequest。
- *
+ * <p>
  * ### into()
  * DrawableTypeRequest的父类DrawableRequestBuilder调用 具体实现在DrawableRequestBuilder的父类GenericRequestBuilder中\
  * ①构建一个Target对象,用来最终展示图片\
@@ -58,6 +66,8 @@ public class GlideActivity extends AppCompatActivity {
 
     private ImageView mImageView;
 
+    private ImageView mWrapImageView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +75,7 @@ public class GlideActivity extends AppCompatActivity {
         setContentView(R.layout.activity_glide);
 
         mImageView = findViewById(R.id.mIv);
+        mWrapImageView = findViewById(R.id.mIv2);
 
 //        glideLoadUrl();   // url图片加载
 //        glidePreloadUrl();  // 图片预加载
@@ -72,13 +83,94 @@ public class GlideActivity extends AppCompatActivity {
 //            showImage();
 //        });
 
-        glideImageDownload();   // 图片下载
+//        glideImageDownload();   // 图片下载
 
+        glideImageTransform();   // 图片转换功能
 
 //        glideLoadLocalImage();
 //        glideLoadResImage();
 //        glideLoadImageBytes();
 //        glideLoadImageUri();
+    }
+
+    /**
+     * Glide 默认对图片的ScaleType进行了FIT_CENTER操作
+     * 这样会导致图片被放大，而不是图片本身的大小
+     * 那么如果我们就需要原图大小显示怎么办呢？
+     * <p>
+     * 1：可以禁用掉图片转换操作
+     * 2：可以使用原图展示
+     * <p>
+     * 图片变换的核心步骤
+     * 1：校验，如果原图为空，或者原图的尺寸和目标裁剪尺寸相同，那么就放弃裁剪
+     * 2：通过数学计算来算出画布的缩放的比例以及偏移值
+     * 3：判断缓存池中取出的Bitmap对象是否为空，如果不为空就可以直接使用，如果为空则要创建一个新的Bitmap对象
+     * 4：将原图Bitmap对象的alpha值复制到裁剪Bitmap对象上面
+     * 5：裁剪Bitmap对象进行绘制，并将最终的结果进行返回
+     */
+    private void glideImageTransform() {
+        String url = "https://www.baidu.com/img/bd_logo1.png";
+//        Glide.with(this)
+//                .load(url)
+//                .into(mWrapImageView);
+
+//        Glide.with(this)
+//                .load(url)
+//                .dontTransform()
+//                .into(mWrapImageView);
+
+        // 实测该方法比较靠谱 原图展示
+//        Glide.with(this)
+//                .load(url)
+//                .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+//                .into(mWrapImageView);
+
+        // 中心裁剪效果
+        String url1 = "http://cn.bing.com/az/hprichbg/rb/AvalancheCreek_ROW11173354624_1920x1080.jpg";
+//        Glide.with(this)
+//                .load(url1)
+//                .override(500, 500)
+//                .centerCrop()
+//                .into(mWrapImageView);
+
+        /**
+         * 自定义图片变换
+         * 圆角化、圆形化、黑白化、模糊化等等，甚至你将原图片完全替换成另外一张图
+         * 自定义一个类让它继承自BitmapTransformation ，
+         * 然后重写transform()方法，
+         * 并在这里去实现具体的图片变换逻辑就可以了
+         */
+//        Glide.with(this)
+//                .load(url1)
+//                .override(500, 500)
+//                .transform(new CircleCrop())
+//                .into(mWrapImageView);
+
+        /**
+         * 图片模糊
+         */
+//        Glide.with(this)
+//                .load(url1)
+//                .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+//                .apply(RequestOptions.bitmapTransform(new BlurTransformation()))
+//                .into(mImageView);
+
+        /**
+         * 模糊
+         * 圆角
+         * 黑白
+         */
+        MultiTransformation<Bitmap> mT = new MultiTransformation<>(
+                new BlurTransformation(),
+                new RoundedCornersTransformation(100, 0, RoundedCornersTransformation.CornerType.ALL),
+                new GrayscaleTransformation()
+        );
+        Glide.with(this)
+                .load(url1)
+                .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                .apply(RequestOptions.bitmapTransform(mT))
+                .into(mImageView);
+
     }
 
     /**
@@ -184,20 +276,20 @@ public class GlideActivity extends AppCompatActivity {
      * 2：加载手机本地图片
      * 3：加载应用资源的图片
      * Glide支持加载各种各样的图片资源，包括网络图片、本地图片、应用资源、二进制流、Uri对象
-     *
+     * <p>
      * 占位图：placeholder
      * 只会在第一次加载的时候能看到
-     *
+     * <p>
      * 缓存策略：diskCacheStrategy(DiskCacheStrategy.NONE)
      * 后面因为图片被缓存了，所以看不到了
      * 我们可以改变一下缓存策略，这样每次加载的时候就能看到图片的占位图了
-     *
+     * <p>
      * 网络异常占位图：Error
-     *
+     * <p>
      * 指定图片格式：asBitmap asGif等 比如指定了asBitmap 那么加载出来的图片都是静态的了，包括Gif
-     *
+     * <p>
      * 强制指定图片大小：.override(100, 100)
-     *
+     * <p>
      * skipMemoryCache: 是否禁用Glide的内存缓存功能
      */
     private void glideLoadUrl() {

@@ -54,49 +54,6 @@ public class GlideCustomTargetActivity extends AppCompatActivity {
     }
 
     /**
-     * 加载Uri图片
-     */
-    private void glideLoadImageUri() {
-        Uri imageUri = getImageUri();
-        Glide.with(this).load(imageUri).into(mImageView);
-    }
-
-    private Uri getImageUri() {
-        return null;
-    }
-
-    /**
-     * 加载二进制流图片
-     */
-    private void glideLoadImageBytes() {
-        byte[] imageBytes = getImageBytes();
-        Glide.with(this).load(imageBytes).into(mImageView);
-    }
-
-    private byte[] getImageBytes() {
-        return new byte[10];
-    }
-
-    /**
-     * 加载应用资源
-     */
-    private void glideLoadResImage() {
-        // 加载应用资源
-        int resource = R.drawable.play;
-        Glide.with(this).load(resource).into(mImageView);
-    }
-
-    /**
-     * Glide加载本地图片
-     * // getExternalCacheDir 获取的是缓存目录 /storage/emulated/0/Android/data/com.example.androidlearn/cache
-     * /storage/emulated/0/Android/data/com.example.androidlearn/cache/pictures/锁屏壁纸/girl.jpeg
-     */
-    private void glideLoadLocalImage() {
-        File file = new File(getExternalCacheDir() + "/pictures/锁屏壁纸/girl.jpeg");
-        Glide.with(this).load(file).into(mImageView);
-    }
-
-    /**
      * Glide流程
      * 1：加载网络上的图片
      * 2：加载手机本地图片
