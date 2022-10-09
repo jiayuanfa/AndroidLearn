@@ -68,6 +68,7 @@
         <activity android:name=".network.RetrofitActivity"/>
         <activity android:name=".network.glide.GlideActivity"/>
         <activity android:name=".network.glide.GlideCustomTargetActivity"/>
+        <activity android:name=".network.glide.Glide4Activity"/>
     </application>
 
 </manifest>

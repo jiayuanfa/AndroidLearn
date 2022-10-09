@@ -26,6 +26,7 @@ import com.example.androidlearn.hardware.SensorJavaActivity;
 import com.example.androidlearn.network.NetworkJavaActivity;
 import com.example.androidlearn.network.OkHttpActivity;
 import com.example.androidlearn.network.RetrofitActivity;
+import com.example.androidlearn.network.glide.Glide4Activity;
 import com.example.androidlearn.network.glide.GlideActivity;
 import com.example.androidlearn.network.glide.GlideCustomTargetActivity;
 import com.example.androidlearn.rxjava.RxJavaActivity;
@@ -86,8 +87,9 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(new Intent(this, RxJavaActivity.class));  // RxJava
 //            startActivity(new Intent(this, OkHttpActivity.class));  // Okhttp
 //            startActivity(new Intent(this, RetrofitActivity.class));    // Retrofit
-            startActivity(new Intent(this, GlideActivity.class));   // Glide
+//            startActivity(new Intent(this, GlideActivity.class));   // Glide
 //            startActivity(new Intent(this, GlideCustomTargetActivity.class));   // Glide custom target
+            startActivity(new Intent(this, Glide4Activity.class));  // Glide4.0用法
         });
     }
 

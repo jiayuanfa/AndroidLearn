@@ -33,6 +33,7 @@
 - Glide with() load() into() 源码分析
 - downloadOnly 图片下载 获取File、Bitmap等源文件
 - Glide 图片变换、自定义变换、三方库实现圆角、模糊、灰度等效果
+- Glide4.0 用法
 
 # 硬件
 - Sensor 距离传感器的使用 Java版本
