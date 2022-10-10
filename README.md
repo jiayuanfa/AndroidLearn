@@ -76,3 +76,6 @@
 ## RxJava
 - RxJava的基本使用 （RxJavaActivity）
 - RxJava3定时器、轮询写法
+
+## 组件化
+- 组件化区分属性

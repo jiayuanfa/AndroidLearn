@@ -2,7 +2,16 @@
 /*************** app_build.gradle log *****************/
 println "app_build_gradle_config start"
 
-apply plugin: 'com.android.application'
+/**
+ * 组件化方案
+ * 第一步：在项目的gradle.properties中配置isModule=false属性
+ * 第二步：每个项目里判断该属性以决定该模块是application还是library即可
+ */
+if (isModule.toBoolean()) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
 apply plugin: 'kotlin-android'
 
 android {
